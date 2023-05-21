@@ -16,7 +16,7 @@ h)capacidade da sala em expectadores.
 Também é necessário estabelecer valor da entrada inteira considerando-se possibilidade da oferta de meia entrada e, em se tratando de sessão de 3D, majoração do ingresso em 25%. Conhecida a programação do cinema no dia corrente, abre-se venda de ingressos, exigindo-se de cada expectador dados sobre tipo de entrada (inteira ou meia) e número de poltrona. A aplicação desenvolvida deve dispor das seguintes funcionalidades e/ou restrições:
 • Inclusão, alteração e exclusão de sessões de cinema, sendo tais operações vedadas após abertura da comercialização de
 ingressos;
-• Impedimento da inclusão ou atualização de sessões de cinema de tal modo que duas ou mais delas ocorram em mesmo horário
+• Impedimento da inclusão ou atualização de sessões de cinema de tal modo que duas ou mais delas ocorram em mesmo horário /
 ou ainda que levam ao encerramento de uma sessão em horário que implique em intervalo de tempo para a sessão seguinte, se
 houver, inferior à 20 minutos;
 • Impedimento de registro de sessões de cinema de modo que duas ou mais delas ocorram em uma mesma sala com capacidades

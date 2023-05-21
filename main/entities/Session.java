@@ -14,13 +14,14 @@ public class Session{
     private LocalDateTime time;
     private Boolean threeDimensions;
     private Double price;
+    private Boolean open;
     private List<Viewer> viewers;
     private Nationality nationality;
     private AudioType audio;
 
 
     public Session(String title, Integer minutes, LocalDateTime time, String nationality, String audio,
-            Boolean threeDimensions, Double price, Integer roomNumber, Integer capacity) {
+            Boolean threeDimensions, Double price, Integer roomNumber) {
         this.title = title;
         this.minutes = minutes;
         this.time = time;
@@ -29,7 +30,8 @@ public class Session{
         this.threeDimensions = threeDimensions;
         this.price = price;
         this.roomNumber = roomNumber;
-        viewers = new ArrayList<>(capacity);
+        viewers = new ArrayList<>(200);
+        open = false;
     }
 
     public void ticketValue(Viewer viewer){
@@ -117,6 +119,14 @@ public class Session{
 
     public void setAudio(AudioType audio) {
         this.audio = audio;
+    }
+
+    public Boolean isOpen() {
+        return open;
+    }
+
+    public void setOpen(Boolean open) {
+        this.open = open;
     }
 
     @Override
