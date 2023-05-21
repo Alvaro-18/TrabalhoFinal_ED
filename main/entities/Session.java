@@ -46,5 +46,83 @@ public class Session{
             viewer.setPaymentPrice(price);
         }
     }
-    
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(Integer minutes) {
+        this.minutes = minutes;
+    }
+
+    public Integer getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(Integer roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public Boolean getThreeDimensions() {
+        return threeDimensions;
+    }
+
+    public void setThreeDimensions(Boolean threeDimensions) {
+        this.threeDimensions = threeDimensions;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public List<Viewer> getViewers() {
+        return viewers;
+    }
+
+    public void setViewers(List<Viewer> viewers) {
+        this.viewers = viewers;
+    }
+
+    public Nationality getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Nationality nationality) {
+        this.nationality = nationality;
+    }
+
+    public AudioType getAudio() {
+        return audio;
+    }
+
+    public void setAudio(AudioType audio) {
+        this.audio = audio;
+    }
+
+    @Override
+    public String toString() {
+        return "Session [title=" + title + ", minutes=" + minutes + ", roomNumber=" + roomNumber + ", time=" + time
+                + ", threeDimensions=" + threeDimensions + ", price=" + price + ", viewers=" + viewers
+                + ", nationality=" + nationality + ", audio=" + audio + "]";
+    }
 }
