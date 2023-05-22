@@ -35,7 +35,18 @@ public class Cinema {
             } else {
                 sessions.add(new Session(title, minutes, time, nationality, audio, threeDimensions, price, roomNumber));
                 System.out.println("A sessão foi registrada com sucesso!");
+                break;
             }
+        }
+    }
+
+    public Session readSession(Integer index) {
+        if (sessions.get(index) != null) {
+            return sessions.get(index);
+        }
+        else {
+            System.err.println("Sessão não encontrada!");
+            return null;
         }
     }
 
