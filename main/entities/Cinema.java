@@ -69,7 +69,7 @@ public class Cinema {
         }
     }
 
-    public void deleteSession(int index) {
+    public void deleteSession(Integer index) {
         if (sessions.get(index) != null){
             if (!sessions.get(index).isOpen()) {
                 sessions.remove(index);
@@ -80,6 +80,37 @@ public class Cinema {
         } 
         else {
             System.err.println("Sala não encontrada!");
+        }
+    }
+
+    public void recordTicketSale(Viewer viewer, Integer sessionNumber){
+        if(viewer.getSeatNumber() >= 1 && viewer.getSeatNumber() <= 200){
+            if(sessions.get(sessionNumber) != null){
+                List<Viewer> viewers = sessions.get(sessionNumber).getViewers();
+                if (!viewers.contains(viewer)){
+                    sessions.get(sessionNumber).addViewer(viewer);
+                } 
+                else {
+                    System.err.println("Poltrona já ocupada!");
+                }
+            }
+            else {
+                System.err.println("Sessão não encontrada!");
+            }
+        }
+    }
+
+    public String seeSchedule() {
+        if (!sessions.isEmpty()) {
+            String retorno = "";
+            for (Session session : sessions) {
+                retorno += session;
+            }
+            return retorno;
+        }
+        else {
+            System.err.println("Programação vazia!Volte mais tarde"); 
+            return null;
         }
     }
 }

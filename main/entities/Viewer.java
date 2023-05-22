@@ -39,4 +39,22 @@ public class Viewer {
     public String toString() {
         return "Viewer [seatNumber=" + seatNumber + ", halfPrice=" + halfPrice + "]";
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Viewer other = (Viewer) obj;
+        if (seatNumber == null) {
+            if (other.seatNumber != null)
+                return false;
+        } else if (!seatNumber.equals(other.seatNumber))
+            return false;
+        return true;
+    }
+
+    
 }

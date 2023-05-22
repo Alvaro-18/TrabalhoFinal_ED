@@ -1,13 +1,14 @@
 package main.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import main.enums.AudioType;
 import main.enums.Nationality;
 
-public class Session{
+public class Session {
     private String title;
     private Integer minutes;
     private Integer roomNumber;
@@ -18,7 +19,6 @@ public class Session{
     private List<Viewer> viewers;
     private Nationality nationality;
     private AudioType audio;
-
 
     public Session(String title, Integer minutes, LocalDateTime time, String nationality, String audio,
             Boolean threeDimensions, Double price, Integer roomNumber) {
@@ -34,17 +34,14 @@ public class Session{
         open = false;
     }
 
-    public void ticketValue(Viewer viewer){
-        if (threeDimensions && viewer.isHalfPrice()){
-            viewer.setPaymentPrice((price*0.25)/2);
-        }
-        else if(threeDimensions && !viewer.isHalfPrice()){
-            viewer.setPaymentPrice((price*0.25));
-        }
-        else if(!threeDimensions && viewer.isHalfPrice()){
-            viewer.setPaymentPrice(price/2);
-        }
-        else {
+    public void ticketValue(Viewer viewer) {
+        if (threeDimensions && viewer.isHalfPrice()) {
+            viewer.setPaymentPrice((price * 0.25) / 2);
+        } else if (threeDimensions && !viewer.isHalfPrice()) {
+            viewer.setPaymentPrice((price * 0.25));
+        } else if (!threeDimensions && viewer.isHalfPrice()) {
+            viewer.setPaymentPrice(price / 2);
+        } else {
             viewer.setPaymentPrice(price);
         }
     }
@@ -100,10 +97,15 @@ public class Session{
     public List<Viewer> getViewers() {
         return viewers;
     }
-
+    
     public void setViewers(List<Viewer> viewers) {
         this.viewers = viewers;
     }
+
+    public void addViewer(Viewer viewer) {
+        viewers.add(viewer);
+    }
+
 
     public Nationality getNationality() {
         return nationality;
@@ -131,8 +133,8 @@ public class Session{
 
     @Override
     public String toString() {
-        return "Session [title=" + title + ", minutes=" + minutes + ", roomNumber=" + roomNumber + ", time=" + time
-                + ", threeDimensions=" + threeDimensions + ", price=" + price + ", viewers=" + viewers
-                + ", nationality=" + nationality + ", audio=" + audio + "]";
+        return "Session [title=" + title + ", roomNumber=" + roomNumber + ", nationality="
+                + nationality.toString().toLowerCase() + ", audio=" + audio.toString().toLowerCase() + 
+                ", duração="+time.format(DateTimeFormatter.ofPattern("DD/MM HH:mm"))+"]";
     }
 }
