@@ -58,7 +58,17 @@ public class Cinema {
         }
     }
 
-    public void RegistarVenda() {
-
+    public void deleteSession(int index) {
+        if (sessions.get(index) != null){
+            if (!sessions.get(index).isOpen()) {
+                sessions.remove(index);
+            } 
+            else {
+                System.err.println("Não é possível deletar uma sessão aberta!!");
+            }
+        } 
+        else {
+            System.err.println("Sala não encontrada!");
+        }
     }
 }
